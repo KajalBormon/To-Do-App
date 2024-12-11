@@ -1,0 +1,36 @@
+header{
+    background-color: crimson;
+    color: white;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu a{
+    text-decoration: none;
+    color: white;
+}
+ul li{
+    list-style: none;
+    display: inline;
+    padding: 15px;
+}
+ul li a{
+    color: white;
+    text-decoration: none;
+}
+.card-size{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    width: 450px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.card-header{
+    background-color: crimson;
+    color: white;
+}
