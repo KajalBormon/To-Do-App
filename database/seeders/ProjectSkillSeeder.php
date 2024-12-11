@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ProjectSkillSeeder extends Seeder
 {
@@ -13,15 +14,49 @@ class ProjectSkillSeeder extends Seeder
      */
     public function run(): void
     {
-        $project1 = Project::find(1);  // Retrieve Project with ID 1
-        $project1->skills()->attach([1, 2, 3]); // Attach Skill IDs 1, 2, and 3 to this project
+        $data = [
+            [
+                'project_id' => 1,
+                'skill_id' => 1
+            ],
+            [
+                'project_id' => 1,
+                'skill_id' => 2
+            ],
+            [
+                'project_id' => 1,
+                'skill_id' => 3
+            ],
+            [
+                'project_id' => 2,
+                'skill_id' => 4
+            ],
+            [
+                'project_id' => 2,
+                'skill_id' => 5
+            ],
+            [
+                'project_id' => 2,
+                'skill_id' => 6
+            ],
+            [
+                'project_id' => 3,
+                'skill_id' => 7
+            ],
+            [
+                'project_id' => 3,
+                'skill_id' => 8
+            ],
+            [
+                'project_id' => 3,
+                'skill_id' => 9
+            ],
+            [
+                'project_id' => 3,
+                'skill_id' => 10
+            ],
+        ];
 
-        // Insert skills for Project 2
-        $project2 = Project::find(2);  // Retrieve Project with ID 2
-        $project2->skills()->attach([4, 5, 6]); // Attach Skill IDs 4, 5, and 6 to this project
-
-        // Insert skills for Project 3
-        $project3 = Project::find(3);  // Retrieve Project with ID 3
-        $project3->skills()->attach([7, 8]); 
+        DB::table('pivot')->insert($data);
     }
 }
