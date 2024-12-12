@@ -1,22 +1,30 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TodoAppController;
 use Illuminate\Support\Facades\Route;
 
-Route::controller(AuthController::class)->group(function () {
-    Route::get('/','index')->name('home');
-    Route::get('/login', 'login')->name('login');
-    Route::post('/signup','signUp')->name('signup');
-    Route::get('/login-dashboard','loginCheck')->name('login.access');
-    Route::get('/dashboard','dashboard')->name('dashboard');
-    Route::get('/logout', 'logout')->name('logout');
+
+Route::middleware('auth')->group(function(){
+    Route::post('/register',[RegisterUserController::class,'store'])->name('auth.register.store');
+    Route::get('/dashboard',[LoginController::class,'index'])->name('auth.dashboard');
+    Route::get('/logout',[LoginController::class,'destroy'])->name('auth.logout');
+    Route::resource('/task', TaskController::class);
+    Route::get('/task/{task}/toggle-status', [TaskController::class, 'statusToggle'])->name('task.toggleStatus');
 });
 
-Route::resource('/task', TaskController::class);
+Route::middleware('guest')->group(function(){
+    Route::post('/login',[LoginController::class,'store'])->name('auth.login.store');
+    Route::get('/',[RegisterUserController::class,'create'])->name('auth.register');
+    Route::get('/login',[LoginController::class,'create'])->name('auth.login');
+});
 
-Route::get('/task/toggle-status/{task}', [TaskController::class, 'statusToggle'])->name('task.toggleStatus');
+
+
+
 
 
 

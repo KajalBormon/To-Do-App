@@ -18,7 +18,7 @@
                 <h3>Sign Up</h3>
             </div>
             <div class="card-body">
-                <form action="{{ route('signup') }}" method="post">
+                <form action="{{ route('auth.register.store') }}" method="post">
                     @csrf
                     <div class="mb-3">
                         <label for="name">Your Name</label> <sup class="text-danger">*</sup><br>

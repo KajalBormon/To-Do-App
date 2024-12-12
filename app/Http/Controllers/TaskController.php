@@ -17,7 +17,8 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::where('user_id', auth()->id())->get();
-        return view('todo_list',compact('tasks'));
+
+        return view('todo.index',compact('tasks'));
     }
 
     /**
@@ -25,7 +26,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view('add_todo');
+        return view('todo.create_todo');
     }
 
     /**
@@ -52,9 +53,8 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-
         //$task = Task::find(Task);
-        return view('update_todo',compact('task'));
+        return view('todo.edit_todo',compact('task'));
     }
 
     /**

@@ -14,29 +14,29 @@
             <header>
                 <nav>
                     <div class="menu">
-                        <a href="{{ route('home') }}">
+                        <a href="{{ route('auth.register') }}">
                             <div class="log"><h1>TODO APP</h1></div>
                         </a>
                         <div class="menu-list">
                             <ul>
                                 @guest
                                 <li>
-                                    <a href="{{ route('home') }}">Sign Up</a>
+                                    <a href="{{ route('auth.register') }}">Register</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('login') }}">Login</a>
+                                    <a href="{{ route('auth.login') }}">Login</a>
                                 </li>
                                 @endguest
                                 @auth
                                 <li>
-                                    <a href="{{ route('task.index') }}">All TO DO</a>
+                                    <a href="{{ route('task.index') }}">My Todo List</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('task.create') }}">Add Item</a>
+                                    <a href="{{ route('task.create') }}">Add Todo Item</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('logout') }}">Logout</a>
+                                    <a href="{{ route('auth.logout') }}">Logout</a>
                                 </li>
                                 @endauth
                             </ul>

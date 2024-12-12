@@ -18,7 +18,7 @@
                 <h3>Login</h3>
             </div>
             <div class="card-body">
-                <form action="{{ route('login.access') }}" method="get">
+                <form action="{{ route('auth.login.store') }}" method="post">
                     @csrf
                     <div class="mb-3">
                         <label for="Email">Email</label><br>
