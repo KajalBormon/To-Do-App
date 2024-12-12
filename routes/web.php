@@ -21,16 +21,3 @@ Route::get('/task/toggle-status/{task}', [TaskController::class, 'statusToggle']
 
 
 
-
-
-
-
-
-/* Route::controller(TodoAppController::class)->group(function () {
-    Route::get('/todo/dashboard', 'index')->name('todo.index');
-    Route::get('/todo/create','create')->name('todo.create');
-    Route::post('/todo/store', 'store')->name('todo.store');
-    Route::get('/todo/edit/{id}', 'edit')->name('todo.edit');
-    Route::delete('/todo/{id}/destroy', 'destroy')->name('todo.destroy');
-}); */
-
