@@ -10,7 +10,7 @@
                     <h3 class="mb-3">UPDATE TO DO ITEM</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('task.update',$task->id) }}" method="post">
+                    <form action="{{ route('tasks.update',$task->id) }}" method="post">
                         @csrf
                         @method('PATCH')
                         <div class="mb-3">

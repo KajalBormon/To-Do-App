@@ -14,11 +14,11 @@
             <header>
                 <nav>
                     <div class="menu">
-                        <a href="{{ route('auth.register') }}">
+                        <a href="">
                             <div class="log"><h1>TODO APP</h1></div>
                         </a>
                         <div class="menu-list">
-                            <ul>
+                            <ul class="d-flex justify-between">
                                 @guest
                                 <li>
                                     <a href="{{ route('auth.register') }}">Register</a>
@@ -30,13 +30,16 @@
                                 @endguest
                                 @auth
                                 <li>
-                                    <a href="{{ route('task.index') }}">My Todo List</a>
+                                    <a href="{{ route('tasks.index') }}">My Todo List</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('task.create') }}">Add Todo Item</a>
+                                    <a href="{{ route('tasks.create') }}">Add Todo Item</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('auth.logout') }}">Logout</a>
+                                    <form action="{{ route('auth.logout') }}" method="post">
+                                        @csrf
+                                        <button type="submit">Logout</button>
+                                    </form>
                                 </li>
                                 @endauth
                             </ul>

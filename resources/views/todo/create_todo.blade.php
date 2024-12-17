@@ -17,7 +17,7 @@
                     <h3>ADD TO DO ITEM</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('task.store') }}" method="post">
+                    <form action="{{ route('tasks.store') }}" method="post">
                         @csrf
                         <div class="mb-3">
                             <label for="title">Title</label><br>

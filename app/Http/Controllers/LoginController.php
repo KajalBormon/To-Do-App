@@ -14,17 +14,18 @@ class LoginController extends Controller
         return view('auth.dashboard');
     }
     public function create(){
+
         return view('auth.login');
     }
 
     public function store(LoginRequest $request)
     {
-        $validate = $request->validated();
+        $validatedData = $request->validated();
 
-        if(Auth::attempt(['email' => $validate['email'], 'password' => $validate['password']])){
+        if(Auth::attempt($validatedData)){
             return redirect()->route('auth.dashboard');
         }else{
-            return redirect()->back()->with('status','Your Email Or password does not match...!!');
+            return back()->with('error', 'Invalid credentials');
         }
     }
 
